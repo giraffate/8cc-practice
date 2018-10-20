@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  app:
+    container_name: my8cc
+    image: gcc:4.9
+    volumes:
+      - ./:/tmp/dev
+    working_dir: /tmp/dev
+    command: ./test.sh
