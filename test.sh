@@ -35,9 +35,14 @@ function testfail() {
 }
 make -s 8cc
 
-test 0 0
-test abc '"abc"'
-testfail '"abc'
-testfail '0abc'
+echo 'test1: ' && test 0 0
+echo 'test2: ' && test abc '"abc"'
+echo 'test3: ' && test 3 '1+2'
+echo 'test4: ' && test 3 '1 + 2'
+echo 'test5: ' && test 10 '1+2+3+4'
+
+echo 'test6: ' && testfail '"abc'
+echo 'test7: ' && testfail '0abc'
+echo 'test8: ' && testfail '1+'
 
 echo "All tests passed"
