@@ -46,17 +46,24 @@ make -s 8cc
 
 echo 'test1: ' && testast '1' '1'
 echo 'test2: ' && testast '(+ (- (+ 1 2) 3) 4)' '1+2-3+4'
+echo 'test3: ' && testast '(+ (+ 1 (* 2 3)) 4)' '1+2*3+4'
+echo 'test4: ' && testast '(+ (* 1 2) (* 3 4))' '1*2+3*4'
+echo 'test5: ' && testast '(+ (/ 4 2) (/ 6 3))' '4/2+6/3'
+echo 'test6: ' && testast '(/ (/ 24 2) 4)' '24/2/4'
 
-echo 'test3: ' && test 0 0
-echo 'test4: ' && test abc '"abc"'
-echo 'test5: ' && test 3 '1+2'
-echo 'test6: ' && test 3 '1 + 2'
-echo 'test7: ' && test 10 '1+2+3+4'
-echo 'test8: ' && test 4 '1+2-3+4'
+echo 'test7: ' && test 0 0
+echo 'test8: ' && test abc '"abc"'
+echo 'test9: ' && test 3 '1+2'
+echo 'test10: ' && test 3 '1 + 2'
+echo 'test11: ' && test 10 '1+2+3+4'
+echo 'test12: ' && test 11 '1+2*3+4'
+echo 'test13: ' && test 14 '1*2+3*4'
+echo 'test14: ' && test 4 '4/2+6/3'
+echo 'test15: ' && test 3 '24/2/4'
 
-echo 'test9: ' && testfail '"abc'
-echo 'test10: ' && testfail '0abc'
-echo 'test11: ' && testfail '1+'
-echo 'test12: ' && testfail '1+"abc"'
+echo 'test16: ' && testfail '"abc'
+echo 'test17: ' && testfail '0abc'
+echo 'test18: ' && testfail '1+'
+echo 'test19: ' && testfail '1+"abc"'
 
 echo "All tests passed"
