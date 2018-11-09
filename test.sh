@@ -55,19 +55,25 @@ echo 'test7: ' && testast '(= a 3)' 'a=3;'
 
 echo 'test8: ' && testast '0' '0;'
 
-echo 'test9: ' && test 3 '1+2;'
-echo 'test10: ' && test 3 '1 + 2;'
-echo 'test11: ' && test 10 '1+2+3+4;'
-echo 'test12: ' && test 11 '1+2*3+4;'
-echo 'test13: ' && test 14 '1*2+3*4;'
-echo 'test14: ' && test 4 '4/2+6/3;'
-echo 'test15: ' && test 3 '24/2/4;'
+echo 'test9: ' && testast 'a()' 'a();'
+echo 'test10: ' && testast 'a(b,c,d,e,f,g)' 'a(b,c,d,e,f,g);'
 
-echo 'test16: ' && test 2 '1;2;'
-echo 'test17: ' && test 3 'a=1;a+2;'
-echo 'test18: ' && test 102 'a=1;b=48+2;c=a+b;c*2;'
+echo 'test11: ' && test 3 '1+2;'
+echo 'test12: ' && test 3 '1 + 2;'
+echo 'test13: ' && test 10 '1+2+3+4;'
+echo 'test14: ' && test 11 '1+2*3+4;'
+echo 'test15: ' && test 14 '1*2+3*4;'
+echo 'test16: ' && test 4 '4/2+6/3;'
+echo 'test17: ' && test 3 '24/2/4;'
 
-echo 'test19: ' &&  testfail '0abc;'
-echo 'test20: ' && testfail '1+;'
+echo 'test18: ' && test 2 '1;2;'
+echo 'test19: ' && test 3 'a=1;a+2;'
+echo 'test20: ' && test 102 'a=1;b=48+2;c=a+b;c*2;'
+
+echo 'test21: ' && test 25 'sum2(20, 5);'
+echo 'test22: ' && test 15 'sum5(1, 2, 3, 4, 5);'
+
+echo 'test23: ' && testfail '0abc;'
+echo 'test24: ' && testfail '1+;'
 
 echo "All tests passed"
